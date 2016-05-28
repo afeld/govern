@@ -1,6 +1,6 @@
 # Govern
 
-Automatic governance for your GitHub projects.
+Automatic governance for your projects.
 
 ## Usage
 
