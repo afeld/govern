@@ -26,5 +26,13 @@ merged_prs_per_repo.each do |repo, prs|
   collaborators = @client.collaborators("#{OWNER}/#{repo}").map(&:login)
   users_to_promote = users_with_multiple_merges - collaborators
 
-  puts "#{repo}: #{users_to_promote.join(',')}"
+  if users_to_promote.any?
+    puts "#{repo}:"
+    users_to_promote.each do |user|
+      puts "\t#{user}:"
+      prs_per_user[user].each do |pr|
+        puts "\t\t#{pr.html_url}"
+      end
+    end
+  end
 end
