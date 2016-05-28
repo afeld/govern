@@ -2,6 +2,15 @@
 
 Automatic governance for your GitHub projects.
 
+## Usage
+
+1. [Get an API token.](https://github.com/settings/tokens/new?description=govern&scopes=public_repo)
+1. Run
+
+    ```bash
+    GITHUB_TOKEN=... bundle exec ruby govern.rb
+    ```
+
 ## Inspiration
 
 * [contribulator](https://github.com/andrew/contribulator) - Rank repositories by how welcoming they are.
