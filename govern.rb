@@ -4,7 +4,7 @@ TOKEN = ENV.fetch('GITHUB_TOKEN')
 
 # https://developer.github.com/v3/issues/comments/#reactions-summary
 # Octokit.default_media_type = 'application/vnd.github.squirrel-girl-preview'
-# TODO auto-paginate
+Octokit.auto_paginate = true
 
 @client = Octokit::Client.new(access_token: TOKEN)
 OWNER = @client.user.login
@@ -29,9 +29,9 @@ merged_prs_per_repo.each do |repo, prs|
   if users_to_promote.any?
     puts "#{repo}:"
     users_to_promote.each do |user|
-      puts "\t#{user}:"
+      puts "  #{user}:"
       prs_per_user[user].each do |pr|
-        puts "\t\t#{pr.html_url}"
+        puts "    #{pr.html_url}"
       end
     end
   end
